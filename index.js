@@ -2,6 +2,9 @@
 var inquirer = require('inquirer');
 // fs is a Node standard library package for reading and writing files
 const fs = require('fs');
+const util = require("util");
+
+const writeFileAsync = util.promisify(fs.writeFile);
 // pulls generate markdown functions, notr linking correctly
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
@@ -12,32 +15,44 @@ function init() {
         {
             type: "input",
             name: "title",
-            message: "What is the title?"
+            message: "What is the title?",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "input",
             name: "description",
-            message: "What does your project do?"
+            message: "What does your project do?",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "input",
             name: "installation instructions",
-            message: "How do you install your program?"
+            message: "How do you install your program?",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "input",
             name: "usage information",
-            message: "input?"
+            message: "input?",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "input",
             name: "contribution guidelines",
-            message: "How to contribute?"
+            message: "How to contribute?",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "input",
             name: "test instructions",
-            message: "test instructions"
+            message: "test instructions",
+            default: 'Alligators, of course!',
+
         },
         {
             type: "checkbox",
@@ -48,28 +63,27 @@ function init() {
                 "GNU General Public License 2.0",
                 "MIT License",
                 "BSD 2-Clause"
-            ]
+            ],
+
         },
     ])
+        .then(function answercheck(answers) {
+            var answerkey = answers
+            console.log(answerkey.title)
+            var fileName = "README.md"
+            writeFileAsync(fileName, generateMarkdown(answers), function (err) {
+
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log("Commit logged!");
+                }
+
+            });
+        })
 }
-// TODO: Create a function to write README file
-
-function writeToFile(fileName, data) {
-    var fileName = "README.md"
-    fs.appendFile(fileName, generateMarkdown(), function (err) {
-
-        if (err) {
-            console.log(err);
-        }
-        else {
-            console.log("Commit logged!");
-        }
-
-    });
-}
-
-// TODO: Create a function to initialize app
 
 
 // Function call to initialize app
-init().then(writeToFile);
+init();
