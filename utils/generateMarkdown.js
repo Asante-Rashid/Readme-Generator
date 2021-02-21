@@ -16,17 +16,6 @@ function generateMarkdown(data) {
 
 `;
 }
-// function writeToFile(fileName, data) {
-//   fs.appendFile(fileName, data + '\n', function(err) {
 
-//       if (err) {
-//         console.log(err);
-//       }
-//       else {
-//         console.log("Commit logged!");
-//       }
-    
-//     });
-// }
 
 module.exports = generateMarkdown;
