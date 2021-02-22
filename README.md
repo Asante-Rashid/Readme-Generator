@@ -1,12 +1,35 @@
-# Place holder title
-  ## Placeholder Description
+
+# Readme Generator
+---
+####
+  ## a command line app accesible using nodejs that generates a basic readme etmmplate based on user input
+  ![](https://img.shields.io/badge/license-mit-brightgreen?style=plastic)
+  
+
+  ```
+function generateMarkdown(answers) {
+  
+  return `# ${answers.title}
+  ---
+  ## ${answers.description}
+  ---
   ## Table of Contents
-  * [Installation]NA
-  * [Usage]NA
-  * [Credits]Apache License 2.0
-  * [License]Apache License 2.0
-  ----------------------------------------
-  ## Contributing
+  * [Installation]${answers.installation}
+  * [Usage]${answers.usage}
+  * [Credits]${answers.license}
+  * ${answers.license}
+  #### Contributing
+  ${answers.contribution}
+  
+`;
+}
+
+```
+  ## Table of Contents
+  * [Installation]N/A
+  * [Usage]![running application](./example.gif)
+  * [Credits]N/A
+  * [License]MIT
+  
+  ### Contributing
   [Contributor Covenant](https://www.contributor-covenant.org/)
-  ## Credits
-  Apache License 2.0

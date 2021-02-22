@@ -67,22 +67,21 @@ function init() {
             ],
 
         },
-    ])
-        .then(function answercheck(answers) {
-            // var answerkey = answers
-            // console.log(answerkey.title)
-            var fileName = "README.md"
-            writeFileAsync(fileName, generateMarkdown(answers), function (err) {
+    ]).then(function answercheck(answers) {
+        // var answerkey = answers
+        // console.log(answerkey.title)
+        var fileName = "EXREADME.md"
+        writeFileAsync(fileName, generateMarkdown(answers), function (err) {
 
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log("file made!");
-                }
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log("file made!");
+            }
 
-            });
-        })
+        });
+    });
 }
 
 
