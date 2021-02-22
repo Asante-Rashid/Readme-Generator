@@ -15,43 +15,44 @@ function init() {
         {
             type: "input",
             name: "title",
-            message: "What is the title?",
-            default: 'Alligators, of course!',
+            message: "Your Project Title",
+            default: 'Place holder title',
 
         },
         {
             type: "input",
             name: "description",
-            message: "What does your project do?",
-            default: 'Alligators, of course!',
+            message: "Description ",
+            default: 'Placeholder Description',
 
         },
         {
             type: "input",
-            name: "installation instructions",
-            message: "How do you install your program?",
-            default: 'Alligators, of course!',
+            name: "installation",
+            message: "What are the steps required to install your project?",
+            default: 'NA',
 
         },
         {
             type: "input",
-            name: "usage information",
-            message: "input?",
-            default: 'Alligators, of course!',
+            name: "usage",
+            message: "Provide instructions and examples for use.",
+            default: 'NA',
 
         },
         {
             type: "input",
-            name: "contribution guidelines",
-            message: "How to contribute?",
-            default: 'Alligators, of course!',
+            name: "contribution",
+            message: "Guilines for contribution?",
+            default: '[Contributor Covenant](https://www.contributor-covenant.org/)',
 
         },
+        // need to add a credits option
         {
             type: "input",
-            name: "test instructions",
-            message: "test instructions",
-            default: 'Alligators, of course!',
+            name: "testing",
+            message: "tests for your application and examples on how to run them.",
+            default: 'NA',
 
         },
         {
@@ -68,8 +69,8 @@ function init() {
         },
     ])
         .then(function answercheck(answers) {
-            var answerkey = answers
-            console.log(answerkey.title)
+            // var answerkey = answers
+            // console.log(answerkey.title)
             var fileName = "README.md"
             writeFileAsync(fileName, generateMarkdown(answers), function (err) {
 
@@ -77,7 +78,7 @@ function init() {
                     console.log(err);
                 }
                 else {
-                    console.log("Commit logged!");
+                    console.log("file made!");
                 }
 
             });
